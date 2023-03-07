@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  database:
+    env_file: ./docker-compose.env
+    image: postgres:13.7-alpine
+    ports:
+      - 5432:5432
+  elasticmq:
+    image: softwaremill/elasticmq
+    ports:
+      - 9324:9324
+  cache:
+    image: 139818044667.dkr.ecr.us-east-1.amazonaws.com/gupy/redis:7.0.7
+    ports:
+      - 6379:6379
